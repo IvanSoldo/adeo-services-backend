@@ -1,7 +1,5 @@
 # Adeo Services
 
-This project was created using React and Material UI library.
-
 ## Description
 
 User to reception interface and hotel management tool.
