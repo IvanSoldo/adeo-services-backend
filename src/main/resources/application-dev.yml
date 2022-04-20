@@ -1,0 +1,44 @@
+spring:
+  sql:
+    init:
+      platform: h2
+  datasource:
+    driver-class-name: org.h2.Driver
+    type: com.zaxxer.hikari.HikariDataSource
+    url: jdbc:h2:mem:testdb
+    username: sa
+    password:
+  jpa:
+    show-sql: true
+    database-platform: org.hibernate.dialect.H2Dialect
+    defer-datasource-initialization: true
+    hibernate:
+      ddl-auto: update
+  h2:
+    console:
+      enabled: true
+
+
+logging:
+  level:
+    com:
+      adeo:
+        services: TRACE
+    org:
+      hibernate:
+        SQL: TRACE
+        type.descriptor.sql.BasicBinder: TRACE
+      springframework:
+        cache: TRACE
+
+
+application:
+  frontend-url: http://localhost:3000/menu/
+  security:
+    jwt-expiration-time-in-miliseconds: 480000
+    jwt-secret: be80c1b7440587a72319a3febcdf64291fe9419a08823ebf0f6872a315309d6f
+  firewall:
+    is-enabled: false
+    addresses:
+      - 192.168.111
+      - 192.11.555.888

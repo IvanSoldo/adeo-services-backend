@@ -1,0 +1,41 @@
+spring:
+  sql:
+    init:
+      platform: postgresql
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: ${JDBC_DATABASE_URL}
+    username:
+    password:
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: validate
+      jdbc:
+        time_zone: CET
+
+
+logging:
+  level:
+    com:
+      adeo:
+        services: INFO
+    org:
+      hibernate:
+        SQL: INFO
+        type.descriptor.sql.BasicBinder: INFO
+      springframework:
+        cache: INFO
+
+springfox:
+  documentation:
+    enabled: false
+
+application:
+  frontend-url: http://localhost:3000/menu/
+  security:
+    jwt-expiration-time-in-miliseconds: 480000
+    jwt-secret: be80c1b7440587a72319a3febcdf64291fe9419a08823ebf0f6872a315309d6f
+  firewall:
+    is-enabled:
+    addresses:
